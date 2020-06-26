@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!--icones-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <title>Na Base Do Odio</title>
-</head>
-
+<? include "cabecalho.php"?>
 <body>
-    <nav class="nav-extended black lighten-3">
+    <nav class="nav-extended grey lighten-1">
         <div class="nav-wrapper">
             <ul id="nav-mobile" class="right">
                 <li><a href="galeria.php">galeria</a></li>
@@ -59,14 +43,26 @@
                             </div>
                         </form>
                     </div>
+                     <!-- div de ingredientes-->
+                     <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                    <label for="textarea1">Modo de Preparo</label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                     <!-- input numerico -->
                     <div class="row">
                         <div class="input-field col s4">
-                            <input id="nota" type="number" step=".5" min="0" max="10" class="validate" require>
-                            <label for="nota">Nota Da Receita</label>
+                            <input id="nota" type="number" step="1" min="0" max="10" class="validate" require>
+                            <label for="nota">Porção por Pessoa</label>
                         </div>
 
                     </div>
+
                     <!-- div de bota selecionar arquivo de imagem do pc-->
                     <form action="#">
                         <div class="file-field input-field">
@@ -79,6 +75,7 @@
                             </div>
                         </div>
                     </form>
+                    
                 </div>
 
             </div>

@@ -1,0 +1,11 @@
+body{
+    background-color: rgba(171, 180, 189, 0.795);
+}
+.nav-extended{
+    background-image: url(https://www.portalvilamariana.com/site/img/fotos_paginas_extras/imagem_pg651_100_08-11-2017_4437_temp.jpg);
+    background-size: cover;
+    background-blend-mode: soft-light;
+}
+.nav-header h1{
+    text-shadow: 2px 2px 20px black;
+}
