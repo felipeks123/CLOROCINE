@@ -1,8 +1,14 @@
-<?php include "cabecalho.php"?>
+<?php include "cabecalho.php" ?>
 <?php
-$Receitas1 = ["receita"=> "Torta De Macarrao",
-"nota"=>"9.7",
-"ingredientes"=> "<p><h5>INGREDIENTES</h5>
+$bd = new SQLite3("Receitas.db");
+$sql = "SELECT * FROM Receitas";
+$rs = $bd->query($sql);
+
+
+$Receitas1 = [
+    "receita" => "Torta De Macarrao",
+    "nota" => 9.1,
+    "ingredientes" => "<p><h5>INGREDIENTES</h5>
 <br>400 g de macarrão talharim
 <br>4 ovos (claras separadas)
 <br>1 cebola picada
@@ -15,11 +21,12 @@ $Receitas1 = ["receita"=> "Torta De Macarrao",
 <br>Temperos a gosto
 <br>1 gema para pincelar
 <br>Queijo ralado para polvilhar</p>",
-"imagem"=>"https://img.itdg.com.br/tdg/images/recipes/000/033/200/166353/166353_original.jpg?mode=crop&width=710&height=400",
+    "imagem" => "https://img.itdg.com.br/tdg/images/recipes/000/033/200/166353/166353_original.jpg?mode=crop&width=710&height=400",
 ];
-$Receitas2 = ["receita"=> "Dogão Prensado",
-"nota"=>9.7,
-"ingredientes"=> "<p><h5>INGREDIENTES</h5>
+$Receitas2 = [
+    "receita" => "Dogão Prensado",
+    "nota" => 9.7,
+    "ingredientes" => "<p><h5>INGREDIENTES</h5>
 <br>5 colheres de óleo
 <br>1 cebola picada
 <br>1 dente de alho amassado
@@ -34,11 +41,12 @@ $Receitas2 = ["receita"=> "Dogão Prensado",
 <br>ketchup e mostarda
 <br>queijo mussarela em fatias
 <br>sal a gosto</p>",
-"imagem"=>"https://img.itdg.com.br/tdg/images/recipes/000/167/055/138677/138677_original.jpg?mode=crop&width=710&height=400",
+    "imagem" => "https://img.itdg.com.br/tdg/images/recipes/000/167/055/138677/138677_original.jpg?mode=crop&width=710&height=400",
 ];
-$Receitas3 = ["receita"=> "Torta De Morango",
-"nota"=>9.7,
-"ingredientes"=> "<p><h5>INGREDIENTES</h5>
+$Receitas3 = [
+    "receita" => "Torta De Morango",
+    "nota" => 9.7,
+    "ingredientes" => "<p><h5>INGREDIENTES</h5>
 <h5>MASSA:</h5>
 <br>1 pacote de biscoito maisena
 <br>1/2 xícara de margarina
@@ -53,10 +61,11 @@ $Receitas3 = ["receita"=> "Torta De Morango",
 <br>2 caixas de morangos
 <br>1 pacote de gelatina de morango
 </p>",
-"imagem"=>"https://img.itdg.com.br/tdg/images/recipes/000/021/079/31898/31898_original.jpg?mode=crop&width=710&height=400",
+    "imagem" => "https://img.itdg.com.br/tdg/images/recipes/000/021/079/31898/31898_original.jpg?mode=crop&width=710&height=400",
 ];
-$Receitas =[$Receitas1,$Receitas2,$Receitas3];
+//$Receitas =[$Receitas1,$Receitas2,$Receitas3];
 ?>
+
 <body>
     <nav class="nav-extended grey lighten-1">
         <div class="nav-wrapper">
@@ -77,27 +86,30 @@ $Receitas =[$Receitas1,$Receitas2,$Receitas3];
             </ul>
         </div>
     </nav>
-    <?php foreach ($Receitas as $Receitas1) {?>
-    <div class="row">
-        <div class="col s4">
-            <div class="card hoverable">
-                <div class="card-image">
-                    <img src=" <?= $Receitas1 ["imagem"]?>">
+    <?php while ($Receitas = $rs->fetchArray()) : ?>
+        <div class="row">
+            <div class="col s4">
+                <div class="card hoverable">
+                    <div class="card-image">
+                        <img src=" <?= $Receitas1["imagem"] ?>">
 
-                    <a class="btn-floating halfway-fab waves-effect waves-light grey"><i class="material-icons">favorite_border</i></a>
-                </div>
-                <div class="card-content">
-                    <p class="valign-wrapper"><i class="material-icons amber-text">star</i><?= $Receitas1 ["nota"]?></p>
-                    <span class="card-title"><?= $Receitas1 ["receita"]?></span>
-                    <?= $Receitas1 ["ingredientes"]?>
-
-                </div>
-
-            </div>
-
-        </div>
-    <?php } ?>
+                        <a class="btn-floating halfway-fab waves-effect waves-light grey"><i class="material-icons">favorite_border</i></a>
+                    </div>
+                    <div class="card-content">
+                        <p class="valign-wrapper"><i class="material-icons amber-text">star</i><?= $Receitas1["nota"] ?></p>
+                        <span class="card-title"><?= $Receitas1["receita"] ?></span>
+                        <?= $Receitas1["ingredientes"] ?>
+                    </div>
                    
+                </div>
+            
+            </div>
+                 <?php endwhile ?>
+            </div> 
+           
+       
+    
+
 
 </body>
 
