@@ -1,4 +1,4 @@
-<? include "cabecalho.php"?>
+<?php include "cabecalho.php" ?>
 <body>
     <nav class="nav-extended grey lighten-1">
         <div class="nav-wrapper">

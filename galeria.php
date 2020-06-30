@@ -6,7 +6,7 @@ $rs = $bd->query($sql);
 
 
 $Receitas1 = [
-    "receita" => "Torta De Macarrao",
+    "titulo" => "Torta De Macarrao",
     "nota" => 9.1,
     "ingredientes" => "<p><h5>INGREDIENTES</h5>
 <br>400 g de macarrão talharim
@@ -24,7 +24,7 @@ $Receitas1 = [
     "imagem" => "https://img.itdg.com.br/tdg/images/recipes/000/033/200/166353/166353_original.jpg?mode=crop&width=710&height=400",
 ];
 $Receitas2 = [
-    "receita" => "Dogão Prensado",
+    "titulo" => "Dogão Prensado",
     "nota" => 9.7,
     "ingredientes" => "<p><h5>INGREDIENTES</h5>
 <br>5 colheres de óleo
@@ -91,14 +91,14 @@ $Receitas3 = [
             <div class="col s4">
                 <div class="card hoverable">
                     <div class="card-image">
-                        <img src=" <?= $Receitas1["imagem"] ?>">
+                    <img src=" <?= $Receitas["imagem"] ?>">
 
-                        <a class="btn-floating halfway-fab waves-effect waves-light grey"><i class="material-icons">favorite_border</i></a>
+                        <a class="btn-floating halfway-fab waves-effect waves-light grey"><i class="material-icons">favorite</i></a>
                     </div>
                     <div class="card-content">
-                        <p class="valign-wrapper"><i class="material-icons amber-text">star</i><?= $Receitas1["nota"] ?></p>
-                        <span class="card-title"><?= $Receitas1["receita"] ?></span>
-                        <?= $Receitas1["ingredientes"] ?>
+                        <p class="valign-wrapper"><i class="material-icons amber-text">star</i><?= $Receitas["nota"] ?></p>
+                        <span class="card-title"><?= $Receitas["titulo"] ?></span>
+                        <?= $Receitas["ingredientes"] ?>
                     </div>
                    
                 </div>
