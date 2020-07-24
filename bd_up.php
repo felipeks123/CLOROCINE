@@ -7,7 +7,7 @@ if ($bd->exec($sql))
     echo "\n Receitas apagadas com sucesso\n";
 
 
-$sql = "CREATE TABLE Receitas(
+$sql = "CREATE TABLE receitas(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     titulo varchar (200) NOT NULL,
     imagem varchar (200) ,

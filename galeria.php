@@ -1,9 +1,10 @@
 <?php include "cabecalho.php" ?>
 <?php
-$bd = new SQLite3("Receitas.db");
-$sql = "SELECT * FROM Receitas";
-$rs = $bd->query($sql);
-
+require "./ReceitasRepositoryPDO.php";
+$receitasRepository = new ReceitasRepositoryPDO ();
+$receitas = $receitasRepository -> listarTodos();
+?>
+<?php
 
 $Receitas1 = [
     "titulo" => "Torta De Macarrao",
@@ -86,25 +87,25 @@ $Receitas3 = [
             </ul>
         </div>
     </nav>
-    <?php while ($Receitas = $rs->fetchArray()) : ?>
+    <?php foreach ($receitas as  $receita) : ?>
         <div class="row">
             <div class="col s4">
                 <div class="card hoverable">
                     <div class="card-image">
-                    <img src=" <?= $Receitas["imagem"] ?>">
+                    <img src=" <?= $receitas["imagem"] ?>">
 
                         <a class="btn-floating halfway-fab waves-effect waves-light grey"><i class="material-icons">favorite</i></a>
                     </div>
                     <div class="card-content">
-                        <p class="valign-wrapper"><i class="material-icons amber-text">star</i><?= $Receitas["nota"] ?></p>
-                        <span class="card-title"><?= $Receitas["titulo"] ?></span>
-                        <?= $Receitas["ingredientes"] ?>
+                        <p class="valign-wrapper"><i class="material-icons amber-text">star</i><?= $receita["nota"] ?></p>
+                        <span class="card-title"><?= $receita["titulo"] ?></span>
+                        <?= $receitas["ingredientes"] ?>
                     </div>
                    
                 </div>
             
             </div>
-                 <?php endwhile ?>
+                 <?php endforeach?>
             </div> 
            
        
